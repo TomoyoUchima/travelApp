@@ -1,18 +1,15 @@
 <template>
 <div>
 
-<router-link to="/test1"><button>診断する</button></router-link>
-
  <h2>{{ message }}</h2>
 
-  <div id="choice" v-if="choice">
-    <a href="#" class="square_btn yes" v-on:click="clickAnswer('Yes')">はい</a>
-    <a href="#" class="square_btn no" v-on:click="clickAnswer('No')">いいえ</a>
-  </div>
-  <div id ="retry" v-if="retry_btn">
-      <a href="#" class="square_btn yes" v-on:click="retry">リトライする</a>
-  </div>
-
+<div id="choice" v-if="choice">
+  <a href="#" class="square_btn yes" v-on:click="clickAnswer('Yes')">はい</a>
+  <a href="#" class="square_btn no" v-on:click="clickAnswer('No')">いいえ</a>
+</div>
+<div id ="retry" v-if="retry_btn">
+  <a href="#" class="square_btn yes" v-on:click="retry">リトライする</a>
+</div>
 
 </div>
 </template>
@@ -21,7 +18,7 @@
 
 var counter;
 var quetions;
-var weapons;
+var countries;
 init();
 
 function init(){
@@ -31,27 +28,27 @@ function init(){
     "2.旅といえば食だ",
     "3.予算が限られている",
     "4.冒険したい",
-    "5.旅といえば酒だ"
+    "5.近場がいい"
   ];
-    weapons= {
-    'スプラシューターコラボ':0,
-    'N-ZAP85':0,
-    'ジェットスイーパーカスタム':0,
-    'デュアルスイーパーカスタム':0,
-    'スプラマニューバーコラボ':0,
-    'スプラチャージャー':0,
-    'ホットブラスターカスタム':0,
-    'スプラローラー':0,
-    'パブロ':0,
-    'バケットスロッシャーデコ':0,
-    'バレルスピナー':0,
-    'パラシェルター':0
+    countries= {
+    'フィリピン':0,
+    'タイ':0,
+    'カンボジア':0,
+    'オーストラリア':0,
+    'アメリカ':0,
+    'イギリス':0,
+    'フランス':0,
+    'ドイツ':0,
+    'オランダ':0,
+    'デンマーク':0,
+    'ギリシャ':0,
+    'クロアチア':0
   }
 }
 
 
 export default {
-  name: 'App',
+  name: 'testtop',
    data: () => ({
     choice: true,
     retry_btn: false,
@@ -63,14 +60,14 @@ export default {
       counter += 1;
       if(counter > quetions.length-1){
         maxCount = 0
-        maxWeapon = ""
-        for(weapon in weapons) {
-          if(maxCount < weapons[weapon]){
-            maxCount = weapons[weapon];
-            maxWeapon = weapon;
+        maxCountry = ""
+        for(country in countries) {
+          if(maxCount < countries[country]){
+            maxCount = countries[country];
+            maxCountry = country;
           }
         }
-        this.message = "あなたには「" + maxWeapon + "」がオススメです！";
+        this.message = "あなたには「" + maxCountry + "」がオススメです！";
         this.choice = false;
         this.retry_btn = true;
       }else{
@@ -90,92 +87,91 @@ function addPoint(answer,counter) {
   switch(counter){
     case 0:
       if(answer == 'Yes'){
-        weapons['スプラシューターコラボ'] += 1;
-        weapons['N-ZAP85'] += 1;
-        weapons['ジェットスイーパーカスタム'] += 1;
-        weapons['デュアルスイーパーカスタム'] += 1;
-        weapons['スプラマニューバーコラボ'] += 1;
-        weapons['スプラチャージャー'] += 1;
-        weapons['バレルスピナー'] += 1;
+        countries['フィリピン'] += 1;
+        countries['タイ'] += 1;
+        countries['カンボジア'] += 1;
+        countries['オーストラリア'] += 1;
+        countries['アメリカ'] += 1;
+        countries['イギリス'] += 1;
+        countries['ギリシャ'] += 1;
       }else{
-        weapons['ホットブラスターカスタム'] += 1;
-        weapons['スプラローラー'] += 1;
-        weapons['パブロ'] += 1;
-        weapons['バケットスロッシャーデコ'] += 1;
-        weapons['バレルスピナー'] += 1;
-        weapons['パラシェルター'] += 1;
+        countries['フランス'] += 1;
+        countries['ドイツ'] += 1;
+        countries['オランダ'] += 1;
+        countries['デンマーク'] += 1;
+        countries['ギリシャ'] += 1;
+        countries['クロアチア'] += 1;
       }
       break;
     case 1:
       if(answer == 'Yes'){
-        weapons['N-ZAP85'] += 1;
-        weapons['デュアルスイーパーカスタム'] += 1;
-        weapons['バレルスピナー'] += 1;
-        weapons['バケットスロッシャーデコ'] += 1;
+        countries['タイ'] += 1;
+        countries['オーストラリア'] += 1;
+        countries['ギリシャ'] += 1;
+        countries['デンマーク'] += 1;
       }else{
-        weapons['スプラシューターコラボ'] += 1;
-        weapons['ジェットスイーパーカスタム'] += 1;
-        weapons['ホットブラスターカスタム'] += 1;
-        weapons['スプラローラー'] += 1;
-        weapons['パブロ'] += 1;
-        weapons['パラシェルター'] += 1;
-        weapons['スプラマニューバーコラボ'] += 1;
-        weapons['スプラチャージャー'] += 1;
+        countries['フィリピン'] += 1;
+        countries['カンボジア'] += 1;
+        countries['フランス'] += 1;
+        countries['ドイツ'] += 1;
+        countries['オランダ'] += 1;
+        countries['クロアチア'] += 1;
+        countries['アメリカ'] += 1;
+        countries['イギリス'] += 1;
       }
       break;
     case 2:
       if(answer == 'Yes'){
-        weapons['スプラローラー'] += 1;
-        weapons['パブロ'] += 1;
+        countries['ドイツ'] += 1;
+        countries['オランダ'] += 1;
       }else{
-        weapons['ジェットスイーパーカスタム'] += 1;
-        weapons['バレルスピナー'] += 1;
-        weapons['スプラチャージャー'] += 1;
+        countries['カンボジア'] += 1;
+        countries['ギリシャ'] += 1;
+        countries['イギリス'] += 1;
       }
       break;
     case 3:
       if(answer == 'Yes'){
-        weapons['スプラローラー'] += 1;
-        weapons['パブロ'] += 1;
-        weapons['バケットスロッシャーデコ'] += 1;
-        weapons['ホットブラスターカスタム'] += 1;
-        weapons['スプラシューターコラボ'] += 1;
-        weapons['パラシェルター'] += 1;
-        weapons['スプラマニューバーコラボ'] += 1;
+        countries['ドイツ'] += 1;
+        countries['オランダ'] += 1;
+        countries['デンマーク'] += 1;
+        countries['フランス'] += 1;
+        countries['フィリピン'] += 1;
+        countries['クロアチア'] += 1;
+        countries['アメリカ'] += 1;
       }else{
-        weapons['N-ZAP85'] += 1;
-        weapons['デュアルスイーパーカスタム'] += 1;
-        weapons['ジェットスイーパーカスタム'] += 1;
-        weapons['バレルスピナー'] += 1;
-        weapons['スプラチャージャー'] += 1;
+        countries['タイ'] += 1;
+        countries['オーストラリア'] += 1;
+        countries['カンボジア'] += 1;
+        countries['ギリシャ'] += 1;
+        countries['イギリス'] += 1;
       }
       break;
     case 4:
       if(answer == 'Yes'){
-        weapons['スプラローラー'] += 1;
-        weapons['パブロ'] += 1;
-        weapons['N-ZAP85'] += 1;
-        weapons['スプラシューターコラボ'] += 1;
-        weapons['スプラマニューバーコラボ'] += 1;
+        countries['ドイツ'] += 1;
+        countries['オランダ'] += 1;
+        countries['タイ'] += 1;
+        countries['フィリピン'] += 1;
+        countries['アメリカ'] += 1;
       }else{
-        weapons['ホットブラスターカスタム'] += 1;
-        weapons['バケットスロッシャーデコ'] += 1;
-        weapons['ジェットスイーパーカスタム'] += 1;
-        weapons['バレルスピナー'] += 1;
-        weapons['スプラチャージャー'] += 1;
+        countries['フランス'] += 1;
+        countries['デンマーク'] += 1;
+        countries['カンボジア'] += 1;
+        countries['ギリシャ'] += 1;
+        countries['イギリス'] += 1;
       }
       break;
     case 5:
       if(answer == 'Yes'){
-        weapons['パラシェルター'] += 1;
-        weapons['パブロ'] += 1;
-        weapons['スプラチャージャー'] += 1;
+        countries['クロアチア'] += 1;
+        countries['オランダ'] += 1;
+        countries['イギリス'] += 1;
       }else{
       }
       break;
   }
 }
-
 
 
 </script>
