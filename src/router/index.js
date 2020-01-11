@@ -9,8 +9,8 @@ import test1 from '@/pages/test1'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',  // 追記 URLに#が入るのを防止
-  base: 'test/vue-router-test', //追記 ベースURL 今回はサーバー内のサブディレクトリに保存したいため
+  mode: 'history', // 追記 URLに#が入るのを防止
+  base: 'test/vue-router-test', // 追記 ベースURL 今回はサーバー内のサブディレクトリに保存したいため
   routes: [
 
     {
@@ -37,6 +37,3 @@ export default new Router({
     }
   ]
 })
-
-
-

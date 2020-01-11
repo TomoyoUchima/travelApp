@@ -1,15 +1,9 @@
 <template>
 <div>
-
     <div class="topbtn">
       <router-link to="/testtop"><a>診断する</a></router-link>
     </div>
-    
-
 </div>
-
-
-
 </template>
 
 <script>

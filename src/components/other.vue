@@ -1,6 +1,3 @@
 <template>
-
 <p>other</p>
-  
-</template>>
-  
+</template>
