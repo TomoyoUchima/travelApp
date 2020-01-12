@@ -14,7 +14,7 @@
 var counter
 var quetions
 var countries
-var maxCount
+
 init()
 
 function init () {
@@ -54,9 +54,9 @@ export default {
       addPoint(answer, counter)
       counter += 1
       if (counter > quetions.length - 1) {
-        maxCount = 0
-        maxCountry = ''
-        for (country in countries) {
+        let maxCount = 0
+        let maxCountry = ' '
+        for (let country in countries) {
           if (maxCount < countries[country]) {
             maxCount = countries[country]
             maxCountry = country
