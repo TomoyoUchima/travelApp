@@ -6,7 +6,7 @@
     <a href="#" class="square_btn no" v-on:click="clickAnswer('No')">いいえ</a>
   </div>
   <div id ="retry" v-if="retry_btn">
-    <a href="#" class="square_btn yes" v-on:click="retry">リトライする</a>
+    <a href="#" class="square_btn yes" v-on:click="retry">もう一度</a>
   </div>
 </div>
 </template>
@@ -20,11 +20,11 @@ init()
 function init () {
   counter = 0
   quetions = [
-    'Q1.',
-    'Q2.',
-    'Q3.',
-    'Q4.',
-    'Q5.'
+    "Q1.暑い国が好き",
+    "Q2.旅といえば食だ",
+    "Q3.予算が限られている",
+    "Q4.冒険したい",
+    "Q5.旅といえば酒だ"
   ]
   countries = {
     'フィリピン': 0,
